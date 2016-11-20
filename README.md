@@ -1,6 +1,11 @@
 # sqlexample
 Coding Challenge from Hack U 16NOV2016
 
+### PostgreSQL Settings
+Database - django
+User - vagrant
+Password - vagrant
+
 ## Install the Custom Vagrant Box
 
 1. Install VirtualBox, Vagrant, Postman for your OS
