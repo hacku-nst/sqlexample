@@ -1,11 +1,6 @@
 # sqlexample
 Coding Challenge from Hack U 16NOV2016
 
-### PostgreSQL Settings
-Database - django
-User - vagrant
-Password - vagrant
-
 ## Install the Custom Vagrant Box
 
 1. Install VirtualBox, Vagrant, Postman for your OS
@@ -94,3 +89,58 @@ Password - vagrant
    ```
    $ vagrant halt
    ```
+
+## Provisioning Reference 
+Here's the configuration and setup details of the custom virtual machine `hacku-vm-nst32` based on the Vagrant ubuntu/xenial32 box. 
+
+### Install PostgreSQL, Miniconda, Django, and Django REST Framework 
+
+   ```
+   apt-get update
+
+   sudo apt-get install tree postgresql postgresql-contrib
+
+   wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86.sh
+   bash Miniconda3-latest-Linux-x86.sh
+
+   source ~/.bashrc
+   conda update conda
+   conda create --name hacku-env python=3
+   conda install psycopg2
+
+   mkdir -p ~/Projects/hacku
+   cd ~/Projects/hacku
+   source activate hacku-env
+
+   pip install django
+   pip install djangorestframework
+
+   ```
+
+### Create the PostgreSQL Database and User
+
+   ```
+   $ sudo -u postgres psql
+   postgres=# CREATE DATABASE django;
+   postgres=# CREATE USER vagrant WITH PASSWORD 'vagrant';
+   
+   ```
+
+Database - django
+User - vagrant
+Password - vagrant
+
+### Populate the schapp_school and schapp_performance tables
+
+   ```
+   INSERT INTO public.schapp_school (school_id, school, district, district_id)
+   SELECT "SchoolID", "School", "District", "DistID"
+   FROM public.schools_original;
+   ```
+   ```
+   INSERT INTO public.schapp_performance
+   (district_id, district, school_id, school, academic_year, subject, subgroup, grade_level, participation_rate_2014_to_2015, percentage_meets_or_exceeds_2014_to_2015)
+   SELECT districtid, district, schoolid, school, academicyear, subject, subgroup, gradelevel, participationrate2014to2015, percentagemeetsorexceeds2014to2015
+   FROM public.performance_original;
+   ```
+   
