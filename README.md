@@ -64,9 +64,9 @@ Coding Challenge from Hack U 16NOV2016
 
 1. From your host OS run Postman
 
-2. Choose GET, enter `localhost:8000/school` into the URL bar, and press Send
+2. Choose GET, enter `localhost:8001/school` into the URL bar, and press Send
 
-3. Choose GET, enter `localhost:8000/performance` into the URL bar, and press Send
+3. Choose GET, enter `localhost:8001/performance` into the URL bar, and press Send
 
 ## Clean Up
 
