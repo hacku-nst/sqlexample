@@ -5,6 +5,11 @@ Coding Challenge from Hack U 16NOV2016
 
 1. Install VirtualBox and Vagrant for your OS
 
+   ```
+   www.virtualbox.org
+   www.vagrantup.com
+   ```
+
 2. Install the Vagrant box
 
    ```$ vagrant init troyscottpdx/hacku-vm-nst; vagrant up --provider virtualbox```
