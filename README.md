@@ -1,7 +1,8 @@
 # sqlexample
 Coding Challenge from Hack U 16NOV2016
 
-## Installation
+## Install the `hacku-vm-nst32` Vagrant Box
+
 1. Install VirtualBox and Vagrant for your OS
 
 2. Install the Vagrant box
@@ -30,3 +31,14 @@ Coding Challenge from Hack U 16NOV2016
 3. SSH into the machine
 
    ```$ vagrant ssh```
+
+### PostgreSQL, Miniconda, Django, and Django REST Framework 
+
+## PostgreSQL Setup
+1. Locate the .pgsql files in the `sqlexample` project directory and run the following commands to populate the `schools_original` and `performance_original` tables. 
+
+   ```
+   sudo -u postgres psql < schools_original.pgsql
+   sudo -u postgres psql < performance_original.pgsql
+   ```
+   
