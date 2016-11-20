@@ -33,33 +33,59 @@ Coding Challenge from Hack U 16NOV2016
       config.vm.boot_timeout=400
    end
    ```
+
+## SSH Into the Virtual Machine and Launch the Django Server
    
-3. SSH into the machine
+1. SSH into the virtual machine
 
    ```
    $ vagrant ssh
    ```
 
-4. Change to the project directory
+2. Change to the project directory
 
    ```
    $ cd ~/Projects/hacku/sqlexample 
    ```
 
-5. Activate the virtual environment
+3. Activate the virtual Python environment
 
    ```
    $ source activate hacku-env 
    ```
 
-6. Run the Django server
+4. Run the Django server
 
    ```
    python manage.py runserver 0.0.0.0:8000
    ```
 
-7. From your host OS run Postman
+## Test the API Interface
 
-8. Choose GET, enter `localhost:8000/school` into the URL bar, and press Send.
+1. From your host OS run Postman
 
-9. Choose GET, enter `localhost:8000/performance` into the URL bar, and press Send.
+2. Choose GET, enter `localhost:8000/school` into the URL bar, and press Send
+
+3. Choose GET, enter `localhost:8000/performance` into the URL bar, and press Send
+
+## Clean Up
+
+1. From the virtual machine press Ctrl+C to terminate the Django Server
+
+2. Deactivate the virtual Python environment
+
+   ```
+   $ source deactivate 
+   ```
+
+3. Logout of the SSH session
+
+   ```
+   $ logout
+   ```
+   
+4. Halt the virtual machine
+
+   ```
+   $ vagrant halt
+   ```
