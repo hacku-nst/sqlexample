@@ -23,11 +23,11 @@ Coding Challenge from Hack U 16NOV2016
    # -*- mode: ruby -*-
    # vi: set ft=ruby :
    Vagrant.configure("2") do |config|
-      config.vm.box = "ubuntu/xenial32"
+      config.vm.box = "ubuntu/xenial64"
       config.vm.network "forwarded_port", guest: 80, host: 8080
       config.vm.network "forwarded_port", guest: 8000, host: 8001
       config.vm.provider "virtualbox" do |vb|
-         vb.name = "hacku-vm-nst32"
+         vb.name = "hacku-vm-nst"
          vb.memory = "4064"
       end
       config.vm.boot_timeout=400
@@ -166,7 +166,7 @@ Password - vagrant
 
    ```
    INSERT INTO public.schapp_school (school_id, school, district, district_id)
-   SELECT "SchoolID", "School", "District", "DistID"
+   SELECT SchoolID, School, District, DistID
    FROM public.schools_original;
    ```
    ```
