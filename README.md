@@ -130,6 +130,38 @@ Database - django
 User - vagrant
 Password - vagrant
 
+### Create the schools_original and performance_original tables
+
+   ```
+   CREATE TABLE schools_original (
+    SchoolID INTEGER NOT NULL, 
+    School VARCHAR(60) NOT NULL, 
+    District VARCHAR(46) NOT NULL, 
+    DistID INTEGER NOT NULL
+   );
+   ```
+   ```
+   CREATE TABLE performance_original (
+    DistrictID INTEGER NOT NULL, 
+    District VARCHAR(32) NOT NULL, 
+    SchoolID INTEGER NOT NULL, 
+    School VARCHAR(65) NOT NULL, 
+    AcademicYear INTEGER NOT NULL, 
+    Subject VARCHAR(21) NOT NULL, 
+    Subgroup VARCHAR(32) NOT NULL, 
+    GradeLevel VARCHAR(3) NOT NULL, 
+    ParticipationRate2014to2015 FLOAT, 
+    PercentageMeetsORExceeds2014to2015 FLOAT
+   );
+   ```
+
+### Execute the PostgreSQL Scripts
+
+   ```
+   sudo -u postgres psql < schools_original.pgsql
+   sudo -u postgres psql < performance_original.pgsql
+   ```
+
 ### Populate the schapp_school and schapp_performance tables
 
    ```
